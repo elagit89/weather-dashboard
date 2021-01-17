@@ -1,24 +1,44 @@
 .img-div{
     position: relative;
-}
-
-.without-margin{
-    padding-left: 0px;
     padding-right: 0px;
 }
 
+
+
 .current-weather{
     position: absolute;
-    top: 10%;
-    background-color: white;
-    opacity: 0.25;
+    top: 3%;
+    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.25);
+   
 }
+
+
 #city{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 350%;
-    color: black;
-    
+    font-size: 7vw;
+    color: #706b8c;
+   
 }
-#city{
-    margin-left: 30%;
+#date{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3vw;
+    color: grey;
+
 }
+
+#temperature {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 5vw;
+    color: #48464f;
+}
+
+#cloudy, #rainfall, #pressure, #wind, #sunrise-sunset{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 3vw;
+    color: #48464f;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
