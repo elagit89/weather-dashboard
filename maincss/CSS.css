@@ -1,44 +1,84 @@
+
+.container-fluid{
+    padding: 0px;
+}
 .img-div{
     position: relative;
     padding-right: 0px;
 }
-
-
+.btn-group{
+    padding-right: 0px;
+    height: 7vw;
+    
+}
+.btn-secondary{
+    font-size: 2.5vw;
+}
 
 .current-weather{
     position: absolute;
-    top: 3%;
+    top: 7vw;
     background-color: rgb(255, 255, 255);
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.6);
    
 }
 
 
-#city{
+.city{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 7vw;
     color: #706b8c;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px grey;
    
 }
-#date{
+.date{
     font-family: 'Courier New', Courier, monospace;
     font-size: 3vw;
     color: grey;
+    margin-top: 3px;
+    margin-bottom: 3px;
 
 }
 
-#temperature {
+.temperature {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 5vw;
     color: #48464f;
+    margin-bottom: 5px;
 }
 
-#cloudy, #rainfall, #pressure, #wind, #sunrise-sunset{
+.cloudy, .rainfall, .pressure, .wind, .sunrise-sunset{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 3vw;
     color: #48464f;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.marg{
+    margin-left: 1%;
+}
+.square{
+    margin-top: 25px;
+    border-left: 2px solid grey;
+   
+}
+.first-square{
+    border-left: 0px;
+}
+
+.day-of-week, .temp{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2.4vw;
+    font-weight: bold;
+    color: #48464f;
+    
+}
+.img-div-2{
+    padding-right: 0px;
+    margin-top: 25px;
 }
 
 
