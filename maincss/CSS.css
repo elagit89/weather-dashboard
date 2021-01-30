@@ -1,24 +1,42 @@
-
+body{
+    background-color:whitesmoke;
+}
 .container-fluid{
     padding: 0px;
+}
+
+
+
+.your-city-input{
+    margin-top: 5px;
+    border: 2px solid  #48464f;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 2px 2px 5px #48464f;
+    font-size: 3.5vw;
+    color: #48464f;
+}
+
+.city-button{
+    border: 2px solid  #48464f;
+    background-color:  #48464f;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 2px 2px 5px #48464f;
+    text-shadow: 2px 2px 5px black;
+    font-size: 3.5vw;
+    color: white;
 }
 .img-div{
     position: relative;
     padding-right: 0px;
 }
-.btn-group{
-    padding-right: 0px;
-    height: 7vw;
-    
-}
-.btn-secondary{
-    font-size: 2.5vw;
-}
 
 .current-weather{
     position: absolute;
-    top: 7vw;
-    background-color: rgb(255, 255, 255);
+    top: 0px;
     background-color: rgba(255, 255, 255, 0.6);
    
 }
@@ -26,7 +44,7 @@
 
 .city{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 7vw;
+    font-size: 10vw;
     color: #706b8c;
     margin-bottom: 5px;
     text-shadow: 2px 2px 4px grey;
@@ -34,7 +52,7 @@
 }
 .date{
     font-family: 'Courier New', Courier, monospace;
-    font-size: 3vw;
+    font-size: 3.5vw;
     color: grey;
     margin-top: 3px;
     margin-bottom: 3px;
@@ -50,7 +68,7 @@
 
 .cloudy, .rainfall, .pressure, .wind, .sunrise-sunset{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 3vw;
+    font-size: 3.5vw;
     color: #48464f;
     margin-top: 5px;
     margin-bottom: 5px;
