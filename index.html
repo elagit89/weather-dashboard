@@ -11,24 +11,26 @@
     <body>
         <div class ="container-fluid"> 
            <div class ="row">
-            <div  class="col-12  empty-div"></div>
+            <div  class=" col-11 offset-1  first-div">
+                <p class="city">Bielsko-Biała</p>
+            </div>
            </div>
            <div class ="row">
-            <div class = " col-11 offset-1 wrap">
-                <input class = "your-city-input cityInput" type = "text" name = "city" />
-                <button class = "city-button">Wybierz miasto</button>
+            <div class = " col-11 offset-1 input-wrap">
+                <input class = "your-city-input cityInput" type = "text" name = "city" placeholder="Wpisz miasto ..." />
+                <button class = "city-button">Wybierz</button>
                 <ul class = "city-list cityList">
                 </ul>
+                
               </div> 
             </div>         
             <div class="row">         
                 <div  class="col-12 img-div">
-                    <img src="images/winter.png" class="img-fluid" />
+                    <img  class="img-fluid season-picture" />
                     <div class="row">              
                         <div class="col-12 current-weather">
                           <div class="row">    
                             <div class="col-11 offset-1">
-                            <p class="city">Bielsko-Biała</p>
                             <p class="date">17 stycznia 2020 </p><p class="date">Niedziela</p>
                             <p class="temperature">15 &#x2103</p>
                             <p class="cloudy">zachmurzenie:</p>
@@ -37,53 +39,53 @@
                             <p class="wind">prędkość wiatru:</p>
                             <p class="sunrise-sunset">wschód/zachód słońca:</p>
                             </div>
-                           </div>                        
+                           </div>
+                        </div>                
                        </div>
                     </div>                      
-                </div>        
-            </div>
-        <div class="row next-days">
-               <div class="col-2 square first-square ">
-                   <p class="day-of-week">Poniedz.</p>
-                   <img class="icon"src="" />
-                   <p class="temp">10 &#x2103</p>
-                </div>
-               <div class="col-2 square">
-                   <p class="day-of-week">Wtorek</p>
-                   <img class="icon" src="" />
-                   <p class="temp">12 &#x2103</p>
-                </div>
-               <div class="col-2 square">
-                   <p class="day-of-week">Środa</p>
-                   <img class="icon" src="" />
-                   <p class="temp">10 &#x2103</p>
-                </div>
-               <div class="col-2 square">
-                   <p class="day-of-week">Czwartek</p>
-                   <img class="icon" src="" />
-                   <p class="temp">6 &#x2103</p>
-                </div>
-               <div class="col-2 square">
-                   <p class="day-of-week">Piątek</p>
-                   <img class="icon" src="" />
-                   <p class="temp">8 &#x2103</p>
-            </div>
-               <div class="col-2 square">
-                   <p class="day-of-week">Sobota</p>
-                   <img class="icon" src="" />
-                   <p class="temp">15 &#x2103</p>
-                </div>
-
-        </div>
-
-        <div class="row">
-            <div  class="col-12 img-div-2">
-                <img src="images/winter.png" class="img-fluid" />
-            </div>
-        </div>
+                </div>  
+            <div class="row next-days">
+                    <div class="col-2 square first-square ">
+                        <p class="day-of-week">Poniedz.</p>
+                        <img class="icon"src="" />
+                        <p class="temp">10 &#x2103</p>
+                     </div>
+                    <div class="col-2 square">
+                        <p class="day-of-week">Wtorek</p>
+                        <img class="icon" src="" />
+                        <p class="temp">12 &#x2103</p>
+                     </div>
+                    <div class="col-2 square">
+                        <p class="day-of-week">Środa</p>
+                        <img class="icon" src="" />
+                        <p class="temp">10 &#x2103</p>
+                     </div>
+                    <div class="col-2 square">
+                        <p class="day-of-week">Czwartek</p>
+                        <img class="icon" src="" />
+                        <p class="temp">6 &#x2103</p>
+                     </div>
+                    <div class="col-2 square">
+                        <p class="day-of-week">Piątek</p>
+                        <img class="icon" src="" />
+                        <p class="temp">8 &#x2103</p>
+                   </div>
+                    <div class="col-2 square">
+                        <p class="day-of-week">Sobota</p>
+                        <img class="icon" src="" />
+                        <p class="temp">15 &#x2103</p>
+                     </div>
+            </div>  
+            <div class = "row">
+                    <div  class="col-12 img-div-2">
+                        <img class="img-fluid season-picture" />
+                    </div>
            
-           
-        </div>
+            </div>
+        </div>   
+                
+            
+
      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
      <script src="js/bootstrap.min.js"></script>
     </body>
