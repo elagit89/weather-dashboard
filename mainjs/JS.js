@@ -1,3 +1,39 @@
+
+const date = new Date(2025,2,26);
+console.log(date);
+
+function addSeasonImage(date){
+const seasonPicture = document.querySelectorAll('.season-picture');
+const cityColor = document.querySelector('.city-color'); 
+const dateOfSpring = new Date(2021,2,21);
+const dateOfSummer = new Date(2021,5,22);
+const dateOfAutumn = new Date(2021,8,23);
+const dateOfWinter = new Date(2021,11,22);
+const currentYear = date.getFullYear();
+
+
+if(date >= dateOfSpring.setFullYear(currentYear)){
+  seasonPicture.forEach(img => img.src="images/spring.png");
+
+}
+
+if(date >= dateOfSummer.setFullYear(currentYear)){
+  seasonPicture.forEach(img => img.src="images/summer.png");
+
+}
+ 
+if( date >= dateOfAutumn.setFullYear(currentYear)){
+  seasonPicture.forEach(img => img.src="images/autumn.png");
+
+}
+if(date >= dateOfWinter.setFullYear(currentYear)){
+  seasonPicture.forEach(img => img.src="images/winter.png");
+
+}
+}
+
+console.log(addSeasonImage(date));
+
 const cityArray = ['Augustów', 'Bełchatów', 'Będzin', 'Białystok', 'Bielsko-Biała', 'Bochnia', 'Brzeg', 'Bydgoszcz', 'Bytom', 'Chełm', 'Chrzanów', 'Chorzów','Cieszyn', 'Czechowice-Dziedzice', 'Częstochowa', 'Dąbrowa Górnicza', 'Dębica', 'Elbląg', 'Ełk', 'Gdańsk', 'Gdynia',  'Gliwice', 'Głogówek', 'Gniezno', 'Goczałkowice-Zdrój', 'Gorzów Wielkopolski', 'Grodzisk Mazowiecki', 'Grudziądz','Jarosław', 'Jasło', 'Jastrzębia Góra', 'Jelenia Góra', 'Kalisz', 'Katowice', 'Kielce', 'Kluczbork', 'Kłodzko', 'Kołobrzeg', 'Konin', 'Koszalin', 'Kościan', 'Kraków', 'Krosno', 'Kutno', 'Legnica', 'Leszno', 'Leżajsk', 'Lublin', 'Łeba', 'Łowicz', 'Łódź', 'Malbork', 'Mikołów', 'Mysłowice', 'Nowy Sącz', 'Nysa', 'Olsztyn', 'Opole', 'Ostrołęka', 'Ostrów Świętokrzyski', 'Ostrów Wielkopolski', 'Oświęcim', 'Pabianice', 'Piła', 'Piotrków Trybunalski', 'Płock', 'Poznań', 'Prudnik', 'Przemyśl', 'Przemyśl', 'Pszczyna', 'Puławy', 'Racibórz', 'Radomsko', 'Rawicz', 'Rybnik', 'Rzeszów', 'Siedlce', 'Sieradz', 'Skierniewice', 'Słupsk', 'Sochaczew', 'Sopot', 'Sosnowiec', 'Stargard Szczeciński', 'Starogard Gdański', 'Stary Sącz', 'Suwałki', 'Szczawnica', 'Szczecin', 'Świdnica', 'Świętochłowice', 'Świnoujście', 'Tarnowskie Góry', 'Tarnów',  'Tczew','Tomaszów Mazowiecki','Toruń','Tychy', 'Tymbark', 'Ustronie Morskie', 'Ustroń', 'Wadowice', 'Wałbrzych', 'Warszawa', 'Wieliczka', 'Wisła', 'Wrocław', 'Włocławek', 'Zabrze', 'Zakopane', 'Zamość', 'Zielona Góra', 'Zgierz', 'Zwardoń', 'Żyrardów', 'Żywiec'];
 
 

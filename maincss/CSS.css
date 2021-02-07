@@ -1,32 +1,47 @@
 body{
     background-color:whitesmoke;
+    
+    
 }
 .container-fluid{
     padding: 0px;
 }
 
-.empty-div{
-    height: 10vw;
+.first-div{
+    height: 30vw;
+    padding-bottom: 5vw;
 }
-.wrap{
-    position: fixed;
+
+.city{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 12vw;
+    color: #706b8c;
+    text-shadow: 2px 2px 4px grey;
+    padding-top: 11vw;
+   
+}
+.input-wrap{
+    position: absolute;
     top: 0px;
     z-index: 10;
-    
+   
 }
 
 
 .your-city-input{
-    margin-top: 5px;
+    width: 60vw;
+    padding-left: 4px;
+    margin-top: 2vw;
     border: 2px solid  #48464f;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     box-shadow: 2px 2px 5px #48464f;
-    font-size: 3.5vw;
+    font-size: 4vw;
     font-weight: bold;
     color: #48464f;
 }
+
 
 .city-button{
     border: 2px solid  #48464f;
@@ -35,7 +50,7 @@ body{
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     box-shadow: 2px 2px 5px #48464f;
-    font-size: 3.5vw;
+    font-size: 4vw;
     text-shadow: 2px 2px 5px black;
     color: white;
 }
@@ -47,12 +62,12 @@ ul {
 .city-list li{
     background-color: white;
     margin: 0px;
-    width: 42vw;
+    width: 60vw;
     list-style-type: none;
     border-width: 0px 2px 2px 2px;
     border-style: solid;
     border-color:#48464f;
-    font-size: 3.5vw;
+    font-size: 4vw;
     font-weight: bold;
     color: #48464f;
     padding-left: 3px;
@@ -68,48 +83,48 @@ ul {
 }
 
 .current-weather{
+    padding-top: 1vw;
     position: absolute;
     top: 0px;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.75);
+    padding-bottom: 1vw;
    
 }
 
 
-.city{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 9vw;
-    color: #706b8c;
-    margin-top: 5px;;
-    margin-bottom: 5px;
-    text-shadow: 2px 2px 4px grey;
-   
-}
 .date{
     font-family: 'Courier New', Courier, monospace;
-    font-size: 3.5vw;
+    font-size: 4vw;
     color: grey;
-    margin-top: 3px;
-    margin-bottom: 3px;
+    padding-top: 0.5vw;
+    margin-bottom: 0px;
+    
+   
 
 }
 
 .temperature {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 5vw;
+    font-size: 8vw;
     color: #48464f;
-    margin-bottom: 5px;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    
 }
 
 .cloudy, .rainfall, .pressure, .wind, .sunrise-sunset{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 3.5vw;
+    font-size: 4vw;
     color: #48464f;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 0px;
+    margin-bottom: 7px;
 }
 
 .next-days{
-    margin-left: 1%;
+    
+    padding-left: 3px;
+    padding-bottom: 5vw;
+    
 }
 .square{
     margin-top: 25px;
@@ -128,9 +143,72 @@ ul {
     color: #48464f;
     
 }
+
+
 .img-div-2{
     padding-right: 0px;
-    margin-top: 25px;
 }
 
 
+@media screen and (min-width: 1000px){
+
+ .first-div{
+    height: 300px;
+    }
+
+.your-city-input{
+    width: 364px;
+    margin-top: 30px;
+    font-size: 28px;
+ }
+
+ .city-button{
+
+    font-size: 28px;
+
+ }
+
+ .city-list li{
+    font-size: 28px;
+    width: 364px;
+ }
+
+ .city{
+     font-size: 120px;
+     padding-top: 100px;
+    
+ }
+
+ .date{
+     font-size: 48px;
+     padding-top: 0px;
+     margin-bottom: 15px;
+ }
+
+ .temperature{
+     font-size: 80px;
+     margin-bottom: 20px;
+ }
+
+ .cloudy, .rainfall, .pressure, .wind, .sunrise-sunset{
+     font-size: 36px;
+ }
+
+ .next-days{
+     padding-top: 40px;
+     padding-bottom: 60px;
+ }
+
+ .day-of-week, .temp{
+     font-size: 28px;
+ }
+ 
+}
+
+
+@media screen and (min-width: 2000px){
+    .img-div-2{
+        display: none;
+    }
+
+}
