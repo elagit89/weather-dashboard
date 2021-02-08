@@ -1,14 +1,12 @@
 
-const date = new Date(2025,2,26);
-console.log(date);
+const date = new Date();
 
 function addSeasonImage(date){
 const seasonPicture = document.querySelectorAll('.season-picture');
-const cityColor = document.querySelector('.city-color'); 
-const dateOfSpring = new Date(2021,2,21);
-const dateOfSummer = new Date(2021,5,22);
-const dateOfAutumn = new Date(2021,8,23);
-const dateOfWinter = new Date(2021,11,22);
+const dateOfSpring = new Date(2020,2,21);
+const dateOfSummer = new Date(2020,5,22);
+const dateOfAutumn = new Date(2020,8,23);
+const dateOfWinter = new Date(2020,11,22);
 const currentYear = date.getFullYear();
 
 
@@ -26,7 +24,7 @@ if( date >= dateOfAutumn.setFullYear(currentYear)){
   seasonPicture.forEach(img => img.src="images/autumn.png");
 
 }
-if(date >= dateOfWinter.setFullYear(currentYear)){
+if(date >= dateOfWinter.setFullYear(currentYear)|| date <= dateOfSpring.setFullYear(currentYear)){
   seasonPicture.forEach(img => img.src="images/winter.png");
 
 }
@@ -47,6 +45,7 @@ const cityList = document.querySelector('.cityList');
     
    }
 
+
     function createCurrentList(filteredCityArray){
     const fragment = document.createDocumentFragment();
     filteredCityArray.forEach(city =>{
@@ -62,9 +61,16 @@ const cityList = document.querySelector('.cityList');
 
    function isAnyCityAvailable(e){
     removePreviousList();
-    let text = e.target.value;
-    if(text.length){
-    const filteredCityArray = cityArray.filter(value => value.indexOf(text) == 0);
+    
+    let inputText = e.target.value;
+    let copyOfText = inputText.slice();
+    let cutText = inputText.slice(1);
+    let bigFirstLetter = copyOfText[0].toUpperCase();
+    let textWithBigFirstLetter = (bigFirstLetter + cutText).trim();
+    cityInput.value = textWithBigFirstLetter;
+    
+    if(textWithBigFirstLetter.length){
+    const filteredCityArray = cityArray.filter(value => value.indexOf(textWithBigFirstLetter) == 0);
     createCurrentList(filteredCityArray)
     filteredCityArray.length = 0;}
    
@@ -78,8 +84,7 @@ function addCityToInput(e){
   cityInput.value = '';
   let cityToAdd = e.target.textContent;
   cityInput.value = cityToAdd;
-  const list = document.querySelectorAll('li');
-    
+  const list = document.querySelectorAll('li'); 
   list.forEach(element => element.remove());
 
 
