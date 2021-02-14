@@ -112,7 +112,8 @@ ul {
     
 }
 
-.cloudy, .rainfall, .pressure, .wind, .sunrise-sunset{
+
+ .pressure, .wind, .precipitation{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 4vw;
     color: #48464f;
@@ -185,14 +186,19 @@ ul {
      margin-bottom: 15px;
  }
 
+ 
  .temperature{
      font-size: 80px;
      margin-bottom: 20px;
+     
  }
 
- .cloudy, .rainfall, .pressure, .wind, .sunrise-sunset{
+
+ .pressure, .wind, .precipitation{
      font-size: 36px;
  }
+
+
 
  .next-days{
      padding-top: 40px;

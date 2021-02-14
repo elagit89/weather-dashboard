@@ -12,7 +12,8 @@
         <div class ="container-fluid"> 
            <div class ="row">
             <div  class=" col-11 offset-1  first-div">
-                <p class="city">Bielsko-Biała</p>
+                <p class="city cityName"></p>
+                
             </div>
            </div>
            <div class ="row">
@@ -20,25 +21,22 @@
                 <input class = "your-city-input cityInput" type = "text" name = "city" placeholder="Wpisz miasto ..." />
                 <button class = "city-button">Wybierz</button>
                 <ul class = "city-list cityList">
-                </ul>
-                
+                </ul>  
               </div> 
             </div>         
             <div class="row">         
                 <div  class="col-12 img-div">
-                    <img  class="img-fluid season-picture" />
+                    <img  class="img-fluid seasonImage" />
                     <div class="row">              
                         <div class="col-12 current-weather">
-                          <div class="row">    
-                            <div class="col-11 offset-1">
-                            <p class="date">17 stycznia 2020 </p><p class="date">Niedziela</p>
-                            <p class="temperature">15 &#x2103</p>
-                            <p class="cloudy">zachmurzenie:</p>
-                            <p class="rainfall">opady:</p>
-                            <p class="pressure">ciśnienie:</p>
-                            <p class="wind">prędkość wiatru:</p>
-                            <p class="sunrise-sunset">wschód/zachód słońca:</p>
-                            </div>
+                          <div class="row">     
+                            <div class="col-11 offset-1"><p class="date currentDate"></p></div>
+                            <div class="col-11 offset-1"><p class="temperature currentTemperature"></p> </div>
+                            <div class="col-3 offset-1"><img class= "img-fluid mainIcon"/></div>                
+                            <div class="col-11 offset-1"><p class="pressure currentPressure"></p></div>
+                            <div class="col-11 offset-1"><p class="wind currentWindSpeed"></p></div>
+                            <div class="col-11 offset-1"><p class="precipitation precipitationProbability">szansa opadów:</p></div>
+                            
                            </div>
                         </div>                
                        </div>
@@ -78,7 +76,7 @@
             </div>  
             <div class = "row">
                     <div  class="col-12 img-div-2">
-                        <img class="img-fluid season-picture" />
+                        <img class="img-fluid seasonImage" />
                     </div>
            
             </div>
