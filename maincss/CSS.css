@@ -14,7 +14,7 @@ body{
 
 .city{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 12vw;
+    font-size: 8.5vw;
     color: #706b8c;
     text-shadow: 2px 2px 4px grey;
     padding-top: 11vw;
@@ -181,7 +181,7 @@ ul {
  }
 
  .city{
-     font-size: 120px;
+     font-size: 90px;
      padding-top: 100px;
     
  }
@@ -221,6 +221,13 @@ ul {
 @media screen and (min-width: 2000px){
     .img-div-2{
         display: none;
+    }
+
+}
+
+@media screen and (min-width: 1000px) and (min-height: 1000px){
+    .city{
+        font-size: 90px;
     }
 
 }

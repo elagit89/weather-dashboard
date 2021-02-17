@@ -42,6 +42,7 @@ const iconZero = document.querySelector('.iconZero');
 const currentPressure = document.querySelector('.currentPressure');
 const currentWindSpeed = document.querySelector('.currentWindSpeed');
 const precipitationProbability = document.querySelector('.precipitationProbability');
+
 const firstDay = document.querySelector('.firstDay');
 const secondDay = document.querySelector('.secondDay');
 const thirdDay = document.querySelector('.thirdDay');
@@ -82,6 +83,8 @@ class WeatherForecast {
     const actualDate = this.changeFormatOfDate();
     const options = {weekday: 'long'};
     this.numberOfDay.textContent = actualDate.toLocaleDateString('pl-PL', options);
+    const dayOfWeek = document.querySelectorAll('.day-of-week');
+    dayOfWeek.forEach(day => day.textContent === 'poniedziałek'? day.textContent = "poniedz.":day.textContent = day.textContent);
   }
 
 
@@ -119,7 +122,6 @@ class CurrentWeatherForecast extends WeatherForecast{
 
  setCurrentPressure(){
     const press = (this.weatherForDay.pres).toFixed(2);
-    console.log(typeof press);
     this.pressure.textContent = `ciśnienie: ${press} hPa`;
   }
   
@@ -127,8 +129,7 @@ class CurrentWeatherForecast extends WeatherForecast{
     const windSpeed = Number(this.weatherForDay.wind_spd);
     const windSpeedKmPerHour = ((windSpeed * 100000) * (3.6 * 10)/1000000).toFixed(2);
     this.windSpeed.textContent = `prędkość wiatru: ${windSpeedKmPerHour} km/h`;
-  
-  
+
   }
   
   setPrecipitationProbability(){
@@ -201,13 +202,11 @@ function showWeatherForTheCity(weatherData){
   console.log(weatherForecast6.setTemperature());
 
   
-
-  
 }
 
 function sendStartRequest(){
-
-  fetch('https://api.weatherbit.io/v2.0/forecast/daily?city=Warszawa&key=7258246c2f5041928580a2c2e6e62847')
+  cityToSend = 'Warszawa';
+  fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=Warszawa&key=7258246c2f5041928580a2c2e6e62847`)
   .then(response => response.ok? response.json() : undefined)
   .then(weatherData => showWeatherForTheCity(weatherData))
   .catch(() => console.log('Wystąpił błąd'));
@@ -218,7 +217,7 @@ console.log(sendStartRequest());
 
 
 
-const cityArray = ['Augustów', 'Bełchatów', 'Będzin', 'Białystok', 'Bielsko-Biała', 'Bochnia', 'Brzeg', 'Bydgoszcz', 'Bytom', 'Chełm', 'Chrzanów', 'Chorzów','Cieszyn', 'Czechowice-Dziedzice', 'Częstochowa', 'Dąbrowa Górnicza', 'Dębica', 'Elbląg', 'Ełk', 'Gdańsk', 'Gdynia',  'Gliwice', 'Głogówek', 'Gniezno', 'Goczałkowice-Zdrój', 'Gorzów Wielkopolski', 'Grodzisk Mazowiecki', 'Grudziądz','Jarosław', 'Jasło', 'Jastrzębia Góra', 'Jelenia Góra', 'Kalisz', 'Katowice', 'Kielce', 'Kluczbork', 'Kłodzko', 'Kołobrzeg', 'Konin', 'Koszalin', 'Kościan', 'Kraków', 'Krosno', 'Kutno', 'Legnica', 'Leszno', 'Leżajsk', 'Lublin', 'Łeba', 'Łowicz', 'Łódź', 'Malbork', 'Mikołów', 'Mysłowice', 'Nowy Sącz', 'Nysa', 'Olsztyn', 'Opole', 'Ostrołęka', 'Ostrów Świętokrzyski', 'Ostrów Wielkopolski', 'Oświęcim', 'Pabianice', 'Piła', 'Piotrków Trybunalski', 'Płock', 'Poznań', 'Prudnik', 'Przemyśl', 'Przemyśl', 'Pszczyna', 'Puławy', 'Racibórz', 'Radomsko', 'Rawicz', 'Rybnik', 'Rzeszów', 'Siedlce', 'Sieradz', 'Skierniewice', 'Słupsk', 'Sochaczew', 'Sopot', 'Sosnowiec', 'Stargard Szczeciński', 'Starogard Gdański', 'Stary Sącz', 'Suwałki', 'Szczawnica', 'Szczecin', 'Świdnica', 'Świętochłowice', 'Świnoujście', 'Tarnowskie Góry', 'Tarnów',  'Tczew','Tomaszów Mazowiecki','Toruń','Tychy', 'Tymbark', 'Ustronie Morskie', 'Ustroń', 'Wadowice', 'Wałbrzych', 'Warszawa', 'Wieliczka', 'Wisła', 'Wrocław', 'Włocławek', 'Zabrze', 'Zakopane', 'Zamość', 'Zielona Góra', 'Zgierz', 'Zwardoń', 'Żyrardów', 'Żywiec'];
+const cityArray = ['Augustów', 'Bełchatów', 'Będzin', 'Białystok', 'Bielsko-Biała', 'Bochnia', 'Brzeg', 'Bydgoszcz', 'Bytom', 'Chełm', 'Chrzanów', 'Chorzów','Cieszyn', 'Czechowice-Dziedzice', 'Częstochowa', 'Dąbrowa Górnicza', 'Dębica', 'Elbląg', 'Ełk', 'Gdańsk', 'Gdynia',  'Gliwice', 'Głogówek', 'Gniezno', 'Goczałkowice-Zdrój', 'Gorzów Wielkopolski', 'Grodzisk Mazowiecki', 'Grudziądz','Jarosław', 'Jasło', 'Jastrzębia Góra', 'Jelenia Góra', 'Kalisz', 'Katowice', 'Kielce', 'Kluczbork', 'Kłodzko', 'Kołobrzeg', 'Konin', 'Koszalin', 'Kościan', 'Kraków', 'Krosno', 'Kutno', 'Legnica', 'Leszno', 'Leżajsk', 'Lublin', 'Łeba', 'Łowicz', 'Łódź', 'Malbork', 'Mikołów', 'Mysłowice', 'Nowy Sącz', 'Nysa', 'Olsztyn', 'Opole', 'Ostrołęka', 'Ostrowiec Świętokrzyski', 'Ostrów Wielkopolski', 'Oświęcim', 'Pabianice', 'Piła', 'Piotrków Trybunalski', 'Płock', 'Poznań', 'Prudnik', 'Przemyśl', 'Przemyśl', 'Pszczyna', 'Puławy', 'Racibórz', 'Radomsko', 'Rawicz', 'Rybnik', 'Rzeszów', 'Siedlce', 'Sieradz', 'Skierniewice', 'Słupsk', 'Sochaczew', 'Sopot', 'Sosnowiec', 'Stargard Szczeciński', 'Starogard Gdański', 'Stary Sącz', 'Suwałki', 'Szczawnica', 'Szczecin', 'Świdnica', 'Świętochłowice', 'Świnoujście', 'Tarnowskie Góry', 'Tarnów',  'Tczew','Tomaszów Mazowiecki','Toruń','Tychy', 'Tymbark', 'Ustronie Morskie', 'Ustroń', 'Wadowice', 'Wałbrzych', 'Warszawa', 'Wieliczka', 'Wisła', 'Wrocław', 'Włocławek', 'Zabrze', 'Zakopane', 'Zamość', 'Zielona Góra', 'Zgierz', 'Zwardoń', 'Żyrardów', 'Żywiec'];
 
 
 
@@ -286,6 +285,19 @@ cityList.addEventListener('click', addCityToInput);
 
 
 
+cityButton = document.querySelector('.cityButton');
 
+function sendRequestForYourCity(){
+  const cityInput = document.querySelector('.cityInput');
+  let cityToSend = cityInput.value;
+  
+    fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=${cityToSend}&key=7258246c2f5041928580a2c2e6e62847`)
+    .then(response => response.ok? response.json() : undefined)
+    .then(weatherData => showWeatherForTheCity(weatherData))
+    .catch(() => console.log('Wystąpił błąd'));
+  
+  
+}
 
- 
+  cityButton.addEventListener('click',sendRequestForYourCity);
+
