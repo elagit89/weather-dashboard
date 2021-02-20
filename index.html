@@ -11,9 +11,8 @@
     <body>
         <div class ="container-fluid"> 
            <div class ="row">
-            <div  class=" col-11 offset-1  first-div">
+            <div  class=" col-11 offset-1  city-div cityDiv">
                 <p class="city cityName"></p>
-                
             </div>
            </div>
            <div class ="row">
@@ -28,20 +27,21 @@
                 <div  class="col-12 img-div">
                     <img  class="img-fluid seasonImage" />
                     <div class="row">              
-                        <div class="col-12 current-weather">
+                        <div class="col-12 current-weather currentWeather">
                           <div class="row">     
                             <div class="col-11 offset-1"><p class="date zeroDay"></p></div>
                             <div class="col-11 offset-1"><p class="temperature tempZero"></p> </div>
                             <div class="col-3 offset-1"><img class="img-fluid iconZero"/></div>                
-                            <div class="col-11 offset-1"><p class="pressure currentPressure"></p></div>
-                            <div class="col-11 offset-1"><p class="wind currentWindSpeed"></p></div>
-                            <div class="col-11 offset-1"><p class="precipitation precipitationProbability"></p></div> 
+                            <div class="col-11 offset-1"><p class= "pressure">ciśnienie:&nbsp<span class="pressure violet-value currentPressure"></span></p></div>
+                            <div class="col-11 offset-1"><p class = "wind">prędkość wiatru:&nbsp<span class="wind violet-value currentWindSpeed"></span></p></div>
+                            <div class="col-11 offset-1"><p class="precipitation">prawdopodobieństwo opadów:&nbsp<span class="precipitation violet-value precipitationProbability"></span></p></div> 
                            </div>
                         </div>                
                        </div>
                     </div>                      
                 </div>  
-            <div class="row next-days ">
+                <div class="hidden-error errorToShow col-11 offset-1 "><p>Spróbuj ponownie...</p></div>
+            <div class="row next-days nextDays ">
                     <div class="col-2 square first-square ">
                         <p class="day-of-week firstDay"></p>
                         <img class="icon iconOne img-fluid" />

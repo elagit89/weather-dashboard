@@ -35,6 +35,8 @@ console.log(addSeasonImage(date));
 
 
 
+
+
 const cityName = document.querySelector('.cityName');
 const zeroDay = document.querySelector('.zeroDay');
 const tempZero = document.querySelector('.tempZero');
@@ -122,28 +124,58 @@ class CurrentWeatherForecast extends WeatherForecast{
 
  setCurrentPressure(){
     const press = (this.weatherForDay.pres).toFixed(2);
-    this.pressure.textContent = `ciśnienie: ${press} hPa`;
+    this.pressure.textContent =  `${press} hPa`;
   }
   
   setWindSpeed(){
     const windSpeed = Number(this.weatherForDay.wind_spd);
     const windSpeedKmPerHour = ((windSpeed * 100000) * (3.6 * 10)/1000000).toFixed(2);
-    this.windSpeed.textContent = `prędkość wiatru: ${windSpeedKmPerHour} km/h`;
+    this.windSpeed.textContent = ` ${windSpeedKmPerHour} km/h`;
 
   }
   
   setPrecipitationProbability(){
   
     const precipitationChance = this.weatherForDay.pop;
-    this.precipitation.textContent = `prawdopodobieństwo opadów: ${precipitationChance} \u0025`;
+    this.precipitation.textContent = ` ${precipitationChance} \u0025`;
   
   }
   
+}
+
+
+
+
+
+function showWeatherAfterError(){
+
+  if(errorToShow.classList.contains('showed-error')){
+    errorToShow.classList.replace('showed-error','hidden-error' );
+  }
+  if(cityDiv.classList.contains('hidden-city'));{
+    cityDiv.classList.replace('hidden-city','city-div' );
+  }
+  if(currentWeather.classList.contains('hidden-current-weather')){
+    currentWeather.classList.replace('hidden-current-weather','current-weather');
+  }
+
+  if(nextDays.classList.contains('hidden-next-days')){
+    nextDays.classList.replace('hidden-next-days','next-days' );
+  }
 
 }
 
+
+
+
+
 function showWeatherForTheCity(weatherData){
   console.log(weatherData);
+
+  showWeatherAfterError()
+
+  if(weatherData.country_code === 'PL'){
+
   cityName.textContent = weatherData.city_name;
 
   const weatherForZeroDay = weatherData.data[0];
@@ -200,8 +232,41 @@ function showWeatherForTheCity(weatherData){
   console.log (weatherForecast6.setDateInDom());
   console.log(weatherForecast6.setIcon());
   console.log(weatherForecast6.setTemperature());
+  }
 
-  
+  else{
+    
+  showError();
+  }
+
+}
+
+
+
+
+const errorToShow = document.querySelector('.errorToShow');
+const cityDiv = document.querySelector('.cityDiv');
+const currentWeather = document.querySelector('.currentWeather');
+const nextDays = document.querySelector('.nextDays');
+
+function showError(){
+
+console.log('błąd');
+  if(errorToShow.classList.contains('hidden-error')){
+    errorToShow.classList.replace('hidden-error', 'showed-error');
+  }
+  if(cityDiv.classList.contains('city-div'));{
+    cityDiv.classList.replace('city-div', 'hidden-city');
+  }
+  if(currentWeather.classList.contains('current-weather')){
+    currentWeather.classList.replace('current-weather' ,'hidden-current-weather');
+  }
+
+  if(nextDays.classList.contains('next-days')){
+    nextDays.classList.replace('next-days', 'hidden-next-days');
+  }
+ 
+
 }
 
 function sendStartRequest(){
@@ -209,7 +274,7 @@ function sendStartRequest(){
   fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=Warszawa&key=7258246c2f5041928580a2c2e6e62847`)
   .then(response => response.ok? response.json() : undefined)
   .then(weatherData => showWeatherForTheCity(weatherData))
-  .catch(() => console.log('Wystąpił błąd'));
+  .catch(() =>{showError()});
 
 }
 
@@ -217,7 +282,7 @@ console.log(sendStartRequest());
 
 
 
-const cityArray = ['Augustów', 'Bełchatów', 'Będzin', 'Białystok', 'Bielsko-Biała', 'Bochnia', 'Brzeg', 'Bydgoszcz', 'Bytom', 'Chełm', 'Chrzanów', 'Chorzów','Cieszyn', 'Czechowice-Dziedzice', 'Częstochowa', 'Dąbrowa Górnicza', 'Dębica', 'Elbląg', 'Ełk', 'Gdańsk', 'Gdynia',  'Gliwice', 'Głogówek', 'Gniezno', 'Goczałkowice-Zdrój', 'Gorzów Wielkopolski', 'Grodzisk Mazowiecki', 'Grudziądz','Jarosław', 'Jasło', 'Jastrzębia Góra', 'Jelenia Góra', 'Kalisz', 'Katowice', 'Kielce', 'Kluczbork', 'Kłodzko', 'Kołobrzeg', 'Konin', 'Koszalin', 'Kościan', 'Kraków', 'Krosno', 'Kutno', 'Legnica', 'Leszno', 'Leżajsk', 'Lublin', 'Łeba', 'Łowicz', 'Łódź', 'Malbork', 'Mikołów', 'Mysłowice', 'Nowy Sącz', 'Nysa', 'Olsztyn', 'Opole', 'Ostrołęka', 'Ostrowiec Świętokrzyski', 'Ostrów Wielkopolski', 'Oświęcim', 'Pabianice', 'Piła', 'Piotrków Trybunalski', 'Płock', 'Poznań', 'Prudnik', 'Przemyśl', 'Przemyśl', 'Pszczyna', 'Puławy', 'Racibórz', 'Radomsko', 'Rawicz', 'Rybnik', 'Rzeszów', 'Siedlce', 'Sieradz', 'Skierniewice', 'Słupsk', 'Sochaczew', 'Sopot', 'Sosnowiec', 'Stargard Szczeciński', 'Starogard Gdański', 'Stary Sącz', 'Suwałki', 'Szczawnica', 'Szczecin', 'Świdnica', 'Świętochłowice', 'Świnoujście', 'Tarnowskie Góry', 'Tarnów',  'Tczew','Tomaszów Mazowiecki','Toruń','Tychy', 'Tymbark', 'Ustronie Morskie', 'Ustroń', 'Wadowice', 'Wałbrzych', 'Warszawa', 'Wieliczka', 'Wisła', 'Wrocław', 'Włocławek', 'Zabrze', 'Zakopane', 'Zamość', 'Zielona Góra', 'Zgierz', 'Zwardoń', 'Żyrardów', 'Żywiec'];
+const cityArray = [ 'Bełchatów', 'Będzin', 'Białystok', 'Bielsko-Biała', 'Bydgoszcz', 'Bytom','Cieszyn', 'Chełm','Chorzów',  'Chrzanów', 'Czechowice-Dziedzice', 'Częstochowa', 'Dąbrowa Górnicza', 'Dębica', 'Elbląg', 'Ełk', 'Gdańsk', 'Gdynia',  'Gliwice', 'Gniezno', 'Gorzów Wielkopolski', 'Grodzisk Mazowiecki', 'Grudziądz', 'Inowrocław','Jarosław', 'Jasło', 'Jastrzębia Góra', 'Jelenia Góra', 'Kalisz', 'Katowice', 'Kluczbork', 'Kłodzko', 'Kołobrzeg', 'Konin', 'Koszalin', 'Kraków', 'Krosno', 'Legnica', 'Lublin', 'Łeba', 'Łowicz', 'Łódź', 'Malbork', 'Mikołów', 'Mysłowice', 'Nowy Sącz', 'Nowy Targ','Nysa', 'Olsztyn', 'Opole', 'Ostrołęka', 'Ostrowiec Świętokrzyski', 'Ostrów Wielkopolski', 'Oświęcim', 'Pabianice', 'Piła', 'Piotrków Trybunalski', 'Płock', 'Poznań', 'Przemyśl', 'Przemyśl', 'Pszczyna', 'Puławy', 'Racibórz', 'Radomsko', 'Rybnik', 'Rzeszów', 'Siedlce', 'Sieradz', 'Skierniewice', 'Słupsk', 'Sochaczew', 'Sopot', 'Sosnowiec', 'Stargard Szczeciński', 'Starogard Gdański', 'Stary Sącz', 'Suwałki', 'Szczecin', 'Świnoujście', 'Tarnowskie Góry', 'Tarnów',  'Tczew','Tomaszów Mazowiecki','Toruń','Tychy', 'Ustronie Morskie', 'Ustroń', 'Wadowice', 'Wałbrzych', 'Warszawa',  'Wrocław', 'Włocławek', 'Zabrze', 'Zakopane', 'Zamość', 'Zielona Góra', 'Żywiec'];
 
 
 
@@ -257,7 +322,7 @@ const cityList = document.querySelector('.cityList');
     if(inputText.length){
     let cutText = inputText.slice(1);
     let bigFirstLetter = inputText[0].toUpperCase();
-    let textWithBigFirstLetter = (bigFirstLetter + cutText).trim();
+    let textWithBigFirstLetter = (bigFirstLetter + cutText);
     cityInput.value = textWithBigFirstLetter;
     const filteredCityArray = cityArray.filter(value => value.indexOf(textWithBigFirstLetter) == 0);
     createCurrentList(filteredCityArray)
@@ -288,13 +353,13 @@ cityList.addEventListener('click', addCityToInput);
 cityButton = document.querySelector('.cityButton');
 
 function sendRequestForYourCity(){
-  const cityInput = document.querySelector('.cityInput');
+ 
   let cityToSend = cityInput.value;
   
     fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=${cityToSend}&key=7258246c2f5041928580a2c2e6e62847`)
     .then(response => response.ok? response.json() : undefined)
     .then(weatherData => showWeatherForTheCity(weatherData))
-    .catch(() => console.log('Wystąpił błąd'));
+    .catch(() => {showError()});
   
   
 }

@@ -7,7 +7,7 @@ body{
     padding: 0px;
 }
 
-.first-div{
+.city-div{
     height: 30vw;
     padding-bottom: 5vw;
 }
@@ -87,7 +87,7 @@ ul {
     position: absolute;
     top: 0px;
     background-color: rgba(255, 255, 255, 0.75);
-    padding-bottom: 1vw;
+    padding-bottom: 2vw;
    
 }
 
@@ -119,6 +119,10 @@ ul {
     color: #48464f;
     margin-top: 0px;
     margin-bottom: 7px;
+}
+
+.violet-value{
+    color:#706b8c
 }
 
 .next-days{
@@ -156,10 +160,33 @@ ul {
     padding-right: 0px;
 }
 
+.hidden-error{
+    display: none;
+}
+.showed-error{
+    display: block;
+    width: 250px;
+    margin: 10px auto 0px auto;
+    font-size: 30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #706b8c;
+}
+
+.hidden-city{
+    display: none;
+}
+
+.hidden-current-weather{
+    display: none;
+}
+
+.hidden-next-days{
+     display : none;
+ }
 
 @media screen and (min-width: 1000px){
 
- .first-div{
+ .city-div{
     height: 300px;
     }
 
@@ -215,12 +242,25 @@ ul {
      font-size: 28px;
  }
  
+ .showed-error{
+
+    width: 500px;
+    font-size: 48px;
+}
+
+
+
 }
 
 
 @media screen and (min-width: 2000px){
     .img-div-2{
         display: none;
+    }
+    
+    .showed-error{
+        width: 800px;
+        font-size: 100px;
     }
 
 }
