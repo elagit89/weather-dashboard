@@ -11,17 +11,18 @@ const currentYear = date.getFullYear();
 
 
 switch (true) {
-  case (date >= dateOfSpring.setFullYear(currentYear)):
-    seasonPicture.forEach(img => img.src="images/spring.png");
+  case ((date >= dateOfSpring.setFullYear(currentYear))&&(date < dateOfSummer.setFullYear(currentYear))):
+    seasonPicture.forEach(img => img.src="images/spring.jpg");
     break;
-  case (date >= dateOfSummer.setFullYear(currentYear)):
-    seasonPicture.forEach(img => img.src="images/summer.png");
+  case ((date >= dateOfSummer.setFullYear(currentYear))&&(date < dateOfAutumn.setFullYear(currentYear))):
+    seasonPicture.forEach(img => img.src="images/summer.jpg");
     break;
-  case ( date >= dateOfAutumn.setFullYear(currentYear)):
-    seasonPicture.forEach(img => img.src="images/autumn.png");
+  case ((date >= dateOfAutumn.setFullYear(currentYear))&&(date < dateOfWinter.setFullYear(currentYear))):
+    seasonPicture.forEach(img => img.src="images/autumn.jpg");
     break;
-  case (date >= dateOfWinter.setFullYear(currentYear)|| date <= dateOfSpring.setFullYear(currentYear)):
-    seasonPicture.forEach(img => img.src="images/winter.png");
+  case ((date >= dateOfWinter.setFullYear(currentYear))|| (date < dateOfSpring.setFullYear(currentYear))):
+    seasonPicture.forEach(img => img.src="images/winter.jpg");
+    break;
   }
 
 }
