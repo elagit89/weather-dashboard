@@ -10,24 +10,21 @@ const dateOfWinter = new Date(2020,11,22);
 const currentYear = date.getFullYear();
 
 
-if(date >= dateOfSpring.setFullYear(currentYear)){
-  seasonPicture.forEach(img => img.src="images/spring.png");
-
+switch (true) {
+  case ((date >= dateOfSpring.setFullYear(currentYear))&&(date < dateOfSummer.setFullYear(currentYear))):
+    seasonPicture.forEach(img => img.src="images/spring.jpg");
+    break;
+  case ((date >= dateOfSummer.setFullYear(currentYear))&&(date < dateOfAutumn.setFullYear(currentYear))):
+    seasonPicture.forEach(img => img.src="images/summer.jpg");
+    break;
+  case ((date >= dateOfAutumn.setFullYear(currentYear))&&(date < dateOfWinter.setFullYear(currentYear))):
+    seasonPicture.forEach(img => img.src="images/autumn.jpg");
+    break;
+  case ((date >= dateOfWinter.setFullYear(currentYear))|| (date < dateOfSpring.setFullYear(currentYear))):
+    seasonPicture.forEach(img => img.src="images/winter.jpg");
+    break;
   }
 
-if(date >= dateOfSummer.setFullYear(currentYear)){
-  seasonPicture.forEach(img => img.src="images/summer.png");
-
-  }
- 
-if( date >= dateOfAutumn.setFullYear(currentYear)){
-  seasonPicture.forEach(img => img.src="images/autumn.png");
-
-  }
-if(date >= dateOfWinter.setFullYear(currentYear)|| date <= dateOfSpring.setFullYear(currentYear)){
-  seasonPicture.forEach(img => img.src="images/winter.png");
-
-  }
 }
 
 console.log(addSeasonImage(date));
@@ -75,10 +72,7 @@ class WeatherForecast {
   }
   changeFormatOfDate(){
     const date = this.weatherForDay.datetime;
-    const year = Number(date.slice(0,4));
-    const month = Number(date.slice(5,7))-1;
-    const day = Number(date.slice(8));
-    const actualDate = new Date(year,month,day);
+    const actualDate = new Date(date);
     return actualDate;
   }
   setDateInDom(){
@@ -149,23 +143,26 @@ class CurrentWeatherForecast extends WeatherForecast{
 
 function showWeatherAfterError(){
 
-  if(errorToShow.classList.contains('showed-error')){
-    errorToShow.classList.replace('showed-error','hidden-error' );
-  }
-  if(cityDiv.classList.contains('hidden-city'));{
-    cityDiv.classList.replace('hidden-city','city-div' );
-  }
-  if(currentWeather.classList.contains('hidden-current-weather')){
-    currentWeather.classList.replace('hidden-current-weather','current-weather');
-  }
 
-  if(nextDays.classList.contains('hidden-next-days')){
+switch(true){
+  case(errorToShow.classList.contains('showed-error')):
+    errorToShow.classList.replace('showed-error','hidden-error');
+  
+  case(cityDiv.classList.contains('hidden-city')):
+    cityDiv.classList.replace('hidden-city','city-div');
+  
+  
+  case(currentWeather.classList.contains('hidden-current-weather')):
+    currentWeather.classList.replace('hidden-current-weather','current-weather');
+    
+
+  case(nextDays.classList.contains('hidden-next-days')):
     nextDays.classList.replace('hidden-next-days','next-days' );
+  
+
   }
 
 }
-
-
 
 
 
@@ -252,18 +249,21 @@ const nextDays = document.querySelector('.nextDays');
 function showError(){
 
 console.log('błąd');
-  if(errorToShow.classList.contains('hidden-error')){
-    errorToShow.classList.replace('hidden-error', 'showed-error');
-  }
-  if(cityDiv.classList.contains('city-div'));{
-    cityDiv.classList.replace('city-div', 'hidden-city');
-  }
-  if(currentWeather.classList.contains('current-weather')){
-    currentWeather.classList.replace('current-weather' ,'hidden-current-weather');
-  }
 
-  if(nextDays.classList.contains('next-days')){
+switch(true){
+  case(errorToShow.classList.contains('hidden-error')):
+    errorToShow.classList.replace('hidden-error', 'showed-error');
+  
+  case(cityDiv.classList.contains('city-div')):
+    cityDiv.classList.replace('city-div', 'hidden-city');
+  
+  case(currentWeather.classList.contains('current-weather')):
+    currentWeather.classList.replace('current-weather' ,'hidden-current-weather');
+  
+
+  case(nextDays.classList.contains('next-days')):
     nextDays.classList.replace('next-days', 'hidden-next-days');
+    
   }
  
 
@@ -353,10 +353,11 @@ cityList.addEventListener('click', addCityToInput);
 cityButton = document.querySelector('.cityButton');
 
 function sendRequestForYourCity(){
+  removePreviousList();
  
   let cityToSend = cityInput.value;
   
-    fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=${cityToSend}&key=7258246c2f5041928580a2c2e6e62847`)
+    fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=${encodeURIComponent(cityToSend)}&key=7258246c2f5041928580a2c2e6e62847`)
     .then(response => response.ok? response.json() : undefined)
     .then(weatherData => showWeatherForTheCity(weatherData))
     .catch(() => {showError()});
