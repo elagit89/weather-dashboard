@@ -1,39 +1,5 @@
 
 const date = new Date();
-
-function addSeasonImage(date){
-const seasonPicture = document.querySelectorAll('.seasonImage');
-const dateOfSpring = new Date(2020,2,21);
-const dateOfSummer = new Date(2020,5,22);
-const dateOfAutumn = new Date(2020,8,23);
-const dateOfWinter = new Date(2020,11,22);
-const currentYear = date.getFullYear();
-
-
-switch (true) {
-  case ((date >= dateOfSpring.setFullYear(currentYear))&&(date < dateOfSummer.setFullYear(currentYear))):
-    seasonPicture.forEach(img => img.src="images/spring.jpg");
-    break;
-  case ((date >= dateOfSummer.setFullYear(currentYear))&&(date < dateOfAutumn.setFullYear(currentYear))):
-    seasonPicture.forEach(img => img.src="images/summer.jpg");
-    break;
-  case ((date >= dateOfAutumn.setFullYear(currentYear))&&(date < dateOfWinter.setFullYear(currentYear))):
-    seasonPicture.forEach(img => img.src="images/autumn.jpg");
-    break;
-  case ((date >= dateOfWinter.setFullYear(currentYear))|| (date < dateOfSpring.setFullYear(currentYear))):
-    seasonPicture.forEach(img => img.src="images/winter.jpg");
-    break;
-  }
-
-}
-
-console.log(addSeasonImage(date));
-
-
-
-
-
-
 const cityName = document.querySelector('.cityName');
 const zeroDay = document.querySelector('.zeroDay');
 const tempZero = document.querySelector('.tempZero');
@@ -61,15 +27,40 @@ const tempFour = document.querySelector('.tempFour');
 const tempFife = document.querySelector('.tempFife');
 const tempSix = document.querySelector('.tempSix');
 
+function addSeasonImage(date){
+  const seasonPicture = document.querySelectorAll('.seasonImage');
+  const dateOfSpring = new Date(2020,2,21);
+  const dateOfSummer = new Date(2020,5,22);
+  const dateOfAutumn = new Date(2020,8,23);
+  const dateOfWinter = new Date(2020,11,22);
+  const currentYear = date.getFullYear();
+
+  switch (true) {
+    case ((date >= dateOfSpring.setFullYear(currentYear))&&(date < dateOfSummer.setFullYear(currentYear))):
+      seasonPicture.forEach(img => img.src="images/spring.jpg");
+      break;
+    case ((date >= dateOfSummer.setFullYear(currentYear))&&(date < dateOfAutumn.setFullYear(currentYear))):
+      seasonPicture.forEach(img => img.src="images/summer.jpg");
+      break;
+    case ((date >= dateOfAutumn.setFullYear(currentYear))&&(date < dateOfWinter.setFullYear(currentYear))):
+      seasonPicture.forEach(img => img.src="images/autumn.jpg");
+      break;
+    case ((date >= dateOfWinter.setFullYear(currentYear))|| (date < dateOfSpring.setFullYear(currentYear))):
+      seasonPicture.forEach(img => img.src="images/winter.jpg");
+      break;
+    }
+
+}
 
 class WeatherForecast {
+
   constructor(weatherForDay, numberOfDay,numberOfIcon, numberOfTemp){
-  this.weatherForDay = weatherForDay;
-  this.numberOfDay = numberOfDay;
-  this.numberOfIcon = numberOfIcon;
-  this.numberOfTemp = numberOfTemp;
-  
-  }
+    this.weatherForDay = weatherForDay;
+    this.numberOfDay = numberOfDay;
+    this.numberOfIcon = numberOfIcon;
+    this.numberOfTemp = numberOfTemp;
+  } 
+
   changeFormatOfDate(){
     const date = this.weatherForDay.datetime;
     const actualDate = new Date(date);
@@ -80,7 +71,8 @@ class WeatherForecast {
     const options = {weekday: 'long'};
     this.numberOfDay.textContent = actualDate.toLocaleDateString('pl-PL', options);
     const dayOfWeek = document.querySelectorAll('.day-of-week');
-    dayOfWeek.forEach(day => day.textContent === 'poniedziałek'? day.textContent = "poniedz.":day.textContent = day.textContent);
+    dayOfWeek.forEach(day => day.textContent === 'poniedziałek'? 
+      day.textContent = "poniedz.":day.textContent = day.textContent);
   }
 
 
@@ -92,14 +84,12 @@ class WeatherForecast {
   setTemperature(){
       const temperature = this.weatherForDay.temp;
       this.numberOfTemp.textContent = `${temperature} \u2103`;
-      
     }
-    
-  
 }
 
 
 class CurrentWeatherForecast extends WeatherForecast{
+
   constructor(weatherForDay, numberOfDay,numberOfIcon, numberOfTemp, pressure, windSpeed, precipitation){
     super(weatherForDay, numberOfDay,numberOfIcon, numberOfTemp);
     this.pressure = pressure;
