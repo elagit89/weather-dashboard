@@ -7,7 +7,6 @@ const iconZero = document.querySelector('.iconZero');
 const currentPressure = document.querySelector('.currentPressure');
 const currentWindSpeed = document.querySelector('.currentWindSpeed');
 const precipitationProbability = document.querySelector('.precipitationProbability');
-
 const firstDay = document.querySelector('.firstDay');
 const secondDay = document.querySelector('.secondDay');
 const thirdDay = document.querySelector('.thirdDay');
@@ -37,20 +36,21 @@ function addSeasonImage(date){
 
   switch (true) {
     case ((date >= dateOfSpring.setFullYear(currentYear))&&(date < dateOfSummer.setFullYear(currentYear))):
-      seasonPicture.forEach(img => img.src="public/images/spring.jpg");
+      seasonPicture.forEach(img => img.src="images/spring.jpg");
       break;
     case ((date >= dateOfSummer.setFullYear(currentYear))&&(date < dateOfAutumn.setFullYear(currentYear))):
-      seasonPicture.forEach(img => img.src="public/images/summer.jpg");
+      seasonPicture.forEach(img => img.src="images/summer.jpg");
       break;
     case ((date >= dateOfAutumn.setFullYear(currentYear))&&(date < dateOfWinter.setFullYear(currentYear))):
-      seasonPicture.forEach(img => img.src="public/images/autumn.jpg");
+      seasonPicture.forEach(img => img.src="images/autumn.jpg");
       break;
     case ((date >= dateOfWinter.setFullYear(currentYear))|| (date < dateOfSpring.setFullYear(currentYear))):
-      seasonPicture.forEach(img => img.src="public/images/winter.jpg");
+      seasonPicture.forEach(img => img.src="images/winter.jpg");
       break;
     }
 
 }
+console.log(addSeasonImage(date));
 
 class WeatherForecast {
 
