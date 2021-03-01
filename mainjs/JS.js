@@ -50,7 +50,7 @@ function addSeasonImage(date){
     }
 
 }
-console.log(addSeasonImage(date));
+addSeasonImage(date);
 
 class WeatherForecast {
 
@@ -133,20 +133,19 @@ class CurrentWeatherForecast extends WeatherForecast{
 
 function showWeatherAfterError(){
 
-
-switch(true){
-  case(errorToShow.classList.contains('showed-error')):
+  switch(true){
+    case(errorToShow.classList.contains('showed-error')):
     errorToShow.classList.replace('showed-error','hidden-error');
   
-  case(cityDiv.classList.contains('hidden-city')):
+    case(cityDiv.classList.contains('hidden-city')):
     cityDiv.classList.replace('hidden-city','city-div');
   
   
-  case(currentWeather.classList.contains('hidden-current-weather')):
+    case(currentWeather.classList.contains('hidden-current-weather')):
     currentWeather.classList.replace('hidden-current-weather','current-weather');
     
 
-  case(nextDays.classList.contains('hidden-next-days')):
+    case(nextDays.classList.contains('hidden-next-days')):
     nextDays.classList.replace('hidden-next-days','next-days' );
   
 
@@ -182,43 +181,43 @@ function showWeatherForTheCity(weatherData){
   const weatherForecast6 = new WeatherForecast(weatherForSixthDay, sixthDay, iconSix,tempSix);
 
 
-  console.log (currentWeatherForecast1.changeFormatOfDate());
-  console.log (currentWeatherForecast1.setDateInDom());
-  console.log(currentWeatherForecast1.setIcon());
-  console.log(currentWeatherForecast1.setTemperature());
-  console.log(currentWeatherForecast1.setCurrentPressure());
-  console.log(currentWeatherForecast1.setWindSpeed());
-  console.log(currentWeatherForecast1.setPrecipitationProbability());
+  currentWeatherForecast1.changeFormatOfDate();
+  currentWeatherForecast1.setDateInDom();
+  currentWeatherForecast1.setIcon();
+  currentWeatherForecast1.setTemperature();
+  currentWeatherForecast1.setCurrentPressure();
+  currentWeatherForecast1.setWindSpeed();
+  currentWeatherForecast1.setPrecipitationProbability();
   
-  console.log (weatherForecast1.changeFormatOfDate());
-  console.log (weatherForecast1.setDateInDom());
-  console.log(weatherForecast1.setIcon());
-  console.log(weatherForecast1.setTemperature());
+  weatherForecast1.changeFormatOfDate();
+  weatherForecast1.setDateInDom();
+  weatherForecast1.setIcon();
+  weatherForecast1.setTemperature();
 
-  console.log (weatherForecast2.changeFormatOfDate());
-  console.log (weatherForecast2.setDateInDom());
-  console.log(weatherForecast2.setIcon());
-  console.log(weatherForecast2.setTemperature());
+  weatherForecast2.changeFormatOfDate();
+  weatherForecast2.setDateInDom();
+  weatherForecast2.setIcon();
+  weatherForecast2.setTemperature();
 
-  console.log (weatherForecast3.changeFormatOfDate());
-  console.log (weatherForecast3.setDateInDom());
-  console.log(weatherForecast3.setIcon());
-  console.log(weatherForecast3.setTemperature());
+  weatherForecast3.changeFormatOfDate();
+  weatherForecast3.setDateInDom();
+  weatherForecast3.setIcon();
+  weatherForecast3.setTemperature();
 
-  console.log (weatherForecast4.changeFormatOfDate());
-  console.log (weatherForecast4.setDateInDom());
-  console.log(weatherForecast4.setIcon());
-  console.log(weatherForecast4.setTemperature());
+  weatherForecast4.changeFormatOfDate();
+  weatherForecast4.setDateInDom();
+  weatherForecast4.setIcon();
+  weatherForecast4.setTemperature();
 
-  console.log (weatherForecast5.changeFormatOfDate());
-  console.log (weatherForecast5.setDateInDom());
-  console.log(weatherForecast5.setIcon());
-  console.log(weatherForecast5.setTemperature());
+  weatherForecast5.changeFormatOfDate();
+  weatherForecast5.setDateInDom();
+  weatherForecast5.setIcon();
+  weatherForecast5.setTemperature();
 
-  console.log (weatherForecast6.changeFormatOfDate());
-  console.log (weatherForecast6.setDateInDom());
-  console.log(weatherForecast6.setIcon());
-  console.log(weatherForecast6.setTemperature());
+  weatherForecast6.changeFormatOfDate();
+  weatherForecast6.setDateInDom();
+  weatherForecast6.setIcon();
+  weatherForecast6.setTemperature();
   }
 
   else{
@@ -238,20 +237,18 @@ const nextDays = document.querySelector('.nextDays');
 
 function showError(){
 
-console.log('błąd');
-
-switch(true){
-  case(errorToShow.classList.contains('hidden-error')):
+  switch(true){
+    case(errorToShow.classList.contains('hidden-error')):
     errorToShow.classList.replace('hidden-error', 'showed-error');
   
-  case(cityDiv.classList.contains('city-div')):
+    case(cityDiv.classList.contains('city-div')):
     cityDiv.classList.replace('city-div', 'hidden-city');
   
-  case(currentWeather.classList.contains('current-weather')):
+    case(currentWeather.classList.contains('current-weather')):
     currentWeather.classList.replace('current-weather' ,'hidden-current-weather');
   
 
-  case(nextDays.classList.contains('next-days')):
+    case(nextDays.classList.contains('next-days')):
     nextDays.classList.replace('next-days', 'hidden-next-days');
     
   }
@@ -268,7 +265,7 @@ function sendStartRequest(){
 
 }
 
-console.log(sendStartRequest());
+sendStartRequest();
 
 
 
