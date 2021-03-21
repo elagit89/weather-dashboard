@@ -133,24 +133,10 @@ class CurrentWeatherForecast extends WeatherForecast{
 
 function showWeatherAfterError(){
 
-  switch(true){
-    case(errorToShow.classList.contains('showed-error')):
     errorToShow.classList.replace('showed-error','hidden-error');
-  
-    case(cityDiv.classList.contains('hidden-city')):
     cityDiv.classList.replace('hidden-city','city-div');
-  
-  
-    case(currentWeather.classList.contains('hidden-current-weather')):
     currentWeather.classList.replace('hidden-current-weather','current-weather');
-    
-
-    case(nextDays.classList.contains('hidden-next-days')):
     nextDays.classList.replace('hidden-next-days','next-days' );
-  
-
-  }
-
 }
 
 
@@ -236,24 +222,11 @@ const currentWeather = document.querySelector('.currentWeather');
 const nextDays = document.querySelector('.nextDays');
 
 function showError(){
-
-  switch(true){
-    case(errorToShow.classList.contains('hidden-error')):
+  
     errorToShow.classList.replace('hidden-error', 'showed-error');
-  
-    case(cityDiv.classList.contains('city-div')):
     cityDiv.classList.replace('city-div', 'hidden-city');
-  
-    case(currentWeather.classList.contains('current-weather')):
     currentWeather.classList.replace('current-weather' ,'hidden-current-weather');
-  
-
-    case(nextDays.classList.contains('next-days')):
     nextDays.classList.replace('next-days', 'hidden-next-days');
-    
-  }
- 
-
 }
 
 function sendStartRequest(){
